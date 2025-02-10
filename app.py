@@ -3,7 +3,7 @@ from models.products import db
 from controllers.product_controller import *
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:123@172.17.0.3:3306/swarch2024ii_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:123@172.17.0.2:3306/swarch2024ii_db'
 db.init_app(app)
 
 app.register_blueprint(product_blueprint)
