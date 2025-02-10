@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SWARCH</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>PRODUCT</h1>
+
+    <h2>Create Product</h2>
+    <form method="POST" action="/products">
+        <label for="name">Nombre:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="description">Descripción:</label><br>
+        <textarea id="description" name="description"></textarea><br>
+        <button type="submit">Crear</button>
+    </form>
+
+    <h2>Existing Products</h2>
+    <ul>
+        {% for product in products %}
+            <li>
+                {{ product.name }} - {{ product.description }}
+                <a href="{{ url_for('products.edit_product', product_id=product.id) }}">
+                    <button>Modify</button>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
